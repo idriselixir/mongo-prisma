@@ -64,6 +64,7 @@ async function main() {
       })
     
     console.dir(posts, { depth: Infinity })
+    //delete comments and post
     await prisma.comment.deleteMany({
 where: {
     post:{
@@ -75,6 +76,8 @@ where: {
     await prisma.post.delete({  where: { slug: 'my-first-post' },})
     console.log('post deleeted successfully!')
 }
+
+
 
 main()
   .catch(async (e) => {
